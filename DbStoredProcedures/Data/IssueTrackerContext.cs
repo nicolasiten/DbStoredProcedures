@@ -31,7 +31,7 @@ namespace DbStoredProcedures.Data
                 entity.HasIndex(e => new { e.ProductFk, e.VersionFk, e.OperatingSystemFk })
                     .HasName("IX_Issue_ProductVersionOs");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
+                entity.HasKey(e => e.Id);
 
                 entity.Property(e => e.CreationDate).HasColumnType("datetime");
 
@@ -54,7 +54,7 @@ namespace DbStoredProcedures.Data
 
             modelBuilder.Entity<IssueStatus>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
+                entity.HasKey(e => e.Id);
 
                 entity.Property(e => e.Name)
                     .IsRequired()
@@ -63,7 +63,7 @@ namespace DbStoredProcedures.Data
 
             modelBuilder.Entity<OperatingSystem>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
+                entity.HasKey(e => e.Id);
 
                 entity.Property(e => e.Name)
                     .IsRequired()
@@ -72,7 +72,7 @@ namespace DbStoredProcedures.Data
 
             modelBuilder.Entity<Product>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
+                entity.HasKey(e => e.Id);
 
                 entity.Property(e => e.Name)
                     .IsRequired()
@@ -101,7 +101,7 @@ namespace DbStoredProcedures.Data
 
             modelBuilder.Entity<Version>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
+                entity.HasKey(e => e.Id);
 
                 entity.Property(e => e.Version1)
                     .IsRequired()

@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace DbStoredProcedures.Migrations
+namespace DbStoredProcedures.Data.Migrations
 {
     public partial class Initial : Migration
     {
@@ -11,7 +11,8 @@ namespace DbStoredProcedures.Migrations
                 name: "IssueStatus",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(maxLength: 200, nullable: false)
                 },
                 constraints: table =>
@@ -23,7 +24,8 @@ namespace DbStoredProcedures.Migrations
                 name: "OperatingSystem",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(maxLength: 200, nullable: false)
                 },
                 constraints: table =>
@@ -35,7 +37,8 @@ namespace DbStoredProcedures.Migrations
                 name: "Product",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(maxLength: 200, nullable: false)
                 },
                 constraints: table =>
@@ -47,7 +50,8 @@ namespace DbStoredProcedures.Migrations
                 name: "Version",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Version = table.Column<string>(maxLength: 50, nullable: false)
                 },
                 constraints: table =>
@@ -90,7 +94,8 @@ namespace DbStoredProcedures.Migrations
                 name: "Issue",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     StatusFk = table.Column<int>(nullable: false),
                     OperatingSystemFk = table.Column<int>(nullable: false),
                     ProductFk = table.Column<int>(nullable: false),

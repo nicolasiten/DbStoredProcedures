@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace DbStoredProcedures.Migrations
+namespace DbStoredProcedures.Data.Migrations
 {
     [DbContext(typeof(IssueTrackerContext))]
     partial class IssueTrackerContextModelSnapshot : ModelSnapshot
@@ -22,7 +22,9 @@ namespace DbStoredProcedures.Migrations
             modelBuilder.Entity("DbStoredProcedures.Data.Issue", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime");
@@ -62,7 +64,9 @@ namespace DbStoredProcedures.Migrations
             modelBuilder.Entity("DbStoredProcedures.Data.IssueStatus", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -77,7 +81,9 @@ namespace DbStoredProcedures.Migrations
             modelBuilder.Entity("DbStoredProcedures.Data.OperatingSystem", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -92,7 +98,9 @@ namespace DbStoredProcedures.Migrations
             modelBuilder.Entity("DbStoredProcedures.Data.Product", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -127,7 +135,9 @@ namespace DbStoredProcedures.Migrations
             modelBuilder.Entity("DbStoredProcedures.Data.Version", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Version1")
                         .IsRequired()
