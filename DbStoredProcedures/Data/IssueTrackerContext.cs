@@ -103,7 +103,7 @@ namespace DbStoredProcedures.Data
             {
                 entity.HasKey(e => e.Id);
 
-                entity.Property(e => e.Version1)
+                entity.Property(e => e.VersionName)
                     .IsRequired()
                     .HasColumnName("Version")
                     .HasMaxLength(50);

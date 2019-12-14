@@ -11,7 +11,7 @@ namespace DbStoredProcedures.Data
         }
 
         public int Id { get; set; }
-        public string Version1 { get; set; }
+        public string VersionName { get; set; }
 
         public virtual ICollection<ProductVersionOs> ProductVersionOs { get; set; }
     }
