@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.Extensions.Configuration;
 
 namespace DbStoredProcedures.Data
 {
@@ -13,6 +14,18 @@ namespace DbStoredProcedures.Data
         public IssueTrackerContext(DbContextOptions<IssueTrackerContext> options)
             : base(options)
         {
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                var config = new ConfigurationBuilder()
+                    .AddJsonFile("appsettings.json")
+                    .Build();
+
+                optionsBuilder.UseSqlServer(config.GetConnectionString("DbConnection"));
+            }
         }
 
         public virtual DbSet<Issue> Issue { get; set; }

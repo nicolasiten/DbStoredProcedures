@@ -1,0 +1,19 @@
+﻿DROP PROCEDURE GetAllIssues;
+
+DROP PROCEDURE GetAllIssuesByProductName;
+
+DROP PROCEDURE GetAllIssuesByProductNameVersion;
+
+DROP PROCEDURE GetAllIssuesByProductCreationDateRange;
+
+DROP PROCEDURE GetAllIssuesByProductVersionCreationDateRange;
+
+DROP PROCEDURE GetAllIssuesByKeyWords;
+
+DROP PROCEDURE GetAllIssuesByProductNameKeyWords;
+
+DROP PROCEDURE GetAllIssuesByProductNameVersionKeyWords;
+
+DROP PROCEDURE GetAllIssuesByProductDateRangeKeywords;
+
+DROP PROCEDURE GetAllIssuesByProductDateRangeVersionKeywords;
