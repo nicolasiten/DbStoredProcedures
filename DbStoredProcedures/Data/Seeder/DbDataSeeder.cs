@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,16 @@ namespace DbStoredProcedures.Data.Seeder
 {
     public static class DbDataSeeder
     {
-        private static readonly Random _random = new Random();
+        public static async Task SeedStaticDataAsync(IssueTrackerContext issueTrackerContext)
+        {
+            await SeedTables(issueTrackerContext);
+
+            if (!await issueTrackerContext.Issue.AnyAsync())
+            {
+                string createStoredProcedures = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data\Seeder\Sql", "InsertIssueData.sql");
+                issueTrackerContext.Issue.FromSqlRaw(File.ReadAllText(createStoredProcedures));
+            }
+        }
 
         public static async Task Seed(int numberOfIssues, IssueTrackerContext issueTrackerContext)
         {

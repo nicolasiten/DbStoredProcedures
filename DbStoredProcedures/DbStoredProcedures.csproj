@@ -35,6 +35,9 @@
     <None Update="Data\Migrations\Sql\DropStoredProcedures.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Data\Seeder\Sql\InsertIssueData.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
