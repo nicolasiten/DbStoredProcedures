@@ -1,7 +1,7 @@
 ﻿SET ANSI_NULLS ON
-
+GO
 SET QUOTED_IDENTIFIER ON
-
+GO
 
 CREATE PROCEDURE GetAllIssues 
 	@Resolved bit
@@ -29,13 +29,13 @@ BEGIN
 
 	EXEC(@sql)
 END
-
+GO
 
 
 SET ANSI_NULLS ON
-
+GO
 SET QUOTED_IDENTIFIER ON
-
+GO
 
 CREATE PROCEDURE GetAllIssuesByProductName 
 	@Resolved bit,
@@ -65,13 +65,13 @@ BEGIN
 
 	EXEC(@sql)
 END
-
+GO
 
 
 SET ANSI_NULLS ON
-
+GO
 SET QUOTED_IDENTIFIER ON
-
+GO
 
 CREATE PROCEDURE GetAllIssuesByProductNameVersion 
 	@Resolved bit,
@@ -103,13 +103,13 @@ BEGIN
 
 	EXEC(@sql)
 END
-
+GO
 
 
 SET ANSI_NULLS ON
-
+GO
 SET QUOTED_IDENTIFIER ON
-
+GO
 
 CREATE PROCEDURE GetAllIssuesByProductNameDateRange 
 	@Resolved bit,
@@ -142,13 +142,13 @@ BEGIN
 
 	EXEC(@sql)
 END
-
+GO
 
 
 SET ANSI_NULLS ON
-
+GO
 SET QUOTED_IDENTIFIER ON
-
+GO
 
 CREATE PROCEDURE GetAllIssuesByProductNameVersionDateRange 
 	@Resolved bit,
@@ -183,13 +183,13 @@ BEGIN
 
 	EXEC(@sql)
 END
-
+GO
 
 
 SET ANSI_NULLS ON
-
+GO
 SET QUOTED_IDENTIFIER ON
-
+GO
 
 CREATE PROCEDURE GetAllIssuesByKeyWords
 	@Resolved bit,
@@ -244,13 +244,13 @@ BEGIN
 
 	EXEC(@sql)
 END
-
+GO
 
 
 SET ANSI_NULLS ON
-
+GO
 SET QUOTED_IDENTIFIER ON
-
+GO
 
 CREATE PROCEDURE GetAllIssuesByProductNameKeyWords
 	@Resolved bit,
@@ -304,13 +304,13 @@ BEGIN
 
 	EXEC(@sql)
 END
-
+GO
 
 
 SET ANSI_NULLS ON
-
+GO
 SET QUOTED_IDENTIFIER ON
-
+GO
 
 CREATE PROCEDURE GetAllIssuesByProductNameVersionKeyWords
 	@Resolved bit,
@@ -366,7 +366,7 @@ BEGIN
 
 	EXEC(@sql)
 END
-
+GO
 
 
 CREATE PROCEDURE GetAllIssuesByProductNameDateRangeKeywords
@@ -424,7 +424,7 @@ BEGIN
 
 	EXEC(@sql)
 END
-
+GO
 
 
 CREATE PROCEDURE GetAllIssuesByProductNameDateRangeVersionKeywords
@@ -484,3 +484,4 @@ BEGIN
 
 	EXEC(@sql)
 END
+GO
