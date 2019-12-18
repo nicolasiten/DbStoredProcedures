@@ -10,7 +10,6 @@ public static class EfCoreStoredProcedureExtension
 {
     public static DbCommand LoadStoredProc(this DbContext context, string storedProcName)
     {
-        var test = context.Database.GetDbConnection();
         var cmd = context.Database.GetDbConnection().CreateCommand();
         cmd.CommandText = storedProcName;
         cmd.CommandType = System.Data.CommandType.StoredProcedure;

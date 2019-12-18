@@ -1,7 +1,7 @@
 ﻿SET ANSI_NULLS ON
-GO
+
 SET QUOTED_IDENTIFIER ON
-GO
+
 
 CREATE PROCEDURE GetAllIssues 
 	@Resolved bit
@@ -29,13 +29,13 @@ BEGIN
 
 	EXEC(@sql)
 END
-GO
+
 
 
 SET ANSI_NULLS ON
-GO
+
 SET QUOTED_IDENTIFIER ON
-GO
+
 
 CREATE PROCEDURE GetAllIssuesByProductName 
 	@Resolved bit,
@@ -65,13 +65,13 @@ BEGIN
 
 	EXEC(@sql)
 END
-GO
+
 
 
 SET ANSI_NULLS ON
-GO
+
 SET QUOTED_IDENTIFIER ON
-GO
+
 
 CREATE PROCEDURE GetAllIssuesByProductNameVersion 
 	@Resolved bit,
@@ -103,15 +103,15 @@ BEGIN
 
 	EXEC(@sql)
 END
-GO
+
 
 
 SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
 
-CREATE PROCEDURE GetAllIssuesByProductCreationDateRange 
+SET QUOTED_IDENTIFIER ON
+
+
+CREATE PROCEDURE GetAllIssuesByProductNameDateRange 
 	@Resolved bit,
 	@ProductName NVARCHAR(200),
 	@DateFrom DATETIME,
@@ -142,15 +142,15 @@ BEGIN
 
 	EXEC(@sql)
 END
-GO
+
 
 
 SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
 
-CREATE PROCEDURE GetAllIssuesByProductVersionCreationDateRange 
+SET QUOTED_IDENTIFIER ON
+
+
+CREATE PROCEDURE GetAllIssuesByProductNameVersionDateRange 
 	@Resolved bit,
 	@ProductName NVARCHAR(200),
 	@Version NVARCHAR(50),
@@ -183,13 +183,13 @@ BEGIN
 
 	EXEC(@sql)
 END
-GO
+
 
 
 SET ANSI_NULLS ON
-GO
+
 SET QUOTED_IDENTIFIER ON
-GO
+
 
 CREATE PROCEDURE GetAllIssuesByKeyWords
 	@Resolved bit,
@@ -244,13 +244,13 @@ BEGIN
 
 	EXEC(@sql)
 END
-GO
+
 
 
 SET ANSI_NULLS ON
-GO
+
 SET QUOTED_IDENTIFIER ON
-GO
+
 
 CREATE PROCEDURE GetAllIssuesByProductNameKeyWords
 	@Resolved bit,
@@ -304,13 +304,13 @@ BEGIN
 
 	EXEC(@sql)
 END
-GO
+
 
 
 SET ANSI_NULLS ON
-GO
+
 SET QUOTED_IDENTIFIER ON
-GO
+
 
 CREATE PROCEDURE GetAllIssuesByProductNameVersionKeyWords
 	@Resolved bit,
@@ -366,10 +366,10 @@ BEGIN
 
 	EXEC(@sql)
 END
-GO
 
 
-CREATE PROCEDURE GetAllIssuesByProductDateRangeKeywords
+
+CREATE PROCEDURE GetAllIssuesByProductNameDateRangeKeywords
 	@Resolved bit,
 	@ProductName NVARCHAR(200),
 	@DateFrom DATETIME,
@@ -424,10 +424,10 @@ BEGIN
 
 	EXEC(@sql)
 END
-GO
 
 
-CREATE PROCEDURE GetAllIssuesByProductDateRangeVersionKeywords
+
+CREATE PROCEDURE GetAllIssuesByProductNameDateRangeVersionKeywords
 	@Resolved bit,
 	@ProductName NVARCHAR(200),
 	@DateFrom DATETIME,
@@ -484,4 +484,3 @@ BEGIN
 
 	EXEC(@sql)
 END
-GO

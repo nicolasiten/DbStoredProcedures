@@ -25,8 +25,6 @@ namespace DbStoredProcedures.Tests
                  .Options;
 
             IssueTrackerContext = new IssueTrackerContext(dbContextOptions);
-
-            DbDataSeeder.SeedStaticDataAsync(IssueTrackerContext).GetAwaiter().GetResult();
         }
 
         protected bool CheckResolvedState(IEnumerable<IssueStoredProcedureResult> issueStoredProcedureResults, bool resolved)
@@ -49,6 +47,11 @@ namespace DbStoredProcedures.Tests
         protected bool CheckProductVersion(IEnumerable<IssueStoredProcedureResult> issueStoredProcedureResults, string version)
         {
             return issueStoredProcedureResults.All(i => i.Version == version);
+        }
+
+        protected bool CheckProductDateRange(IEnumerable<IssueStoredProcedureResult> issueStoredProcedureResults, DateTime fromDate, DateTime toDate)
+        {
+            return issueStoredProcedureResults.All(i => i.CreationDate >= fromDate && i.CreationDate <= toDate);
         }
     }
 }
