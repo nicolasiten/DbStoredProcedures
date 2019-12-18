@@ -16,8 +16,8 @@ namespace DbStoredProcedures.Data.Seeder
 
             if (!await issueTrackerContext.Issue.AnyAsync())
             {
-                string createStoredProcedures = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data\Seeder\Sql", "InsertIssueData.sql");
-                issueTrackerContext.Issue.FromSqlRaw(File.ReadAllText(createStoredProcedures));
+                string insertIssueDataPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data\Seeder\Sql", "InsertIssueData.sql");
+                await issueTrackerContext.Database.ExecuteSqlRawAsync(File.ReadAllText(insertIssueDataPath));
             }
         }
 
@@ -61,58 +61,58 @@ namespace DbStoredProcedures.Data.Seeder
         private static async Task SeedTables(IssueTrackerContext issueTrackerContext)
         {
             if (!await issueTrackerContext.Set<IssueStatus>().AnyAsync())
-            {
+            {               
                 issueTrackerContext.IssueStatus.AddRange(new[]
                 {
-                    new IssueStatus { Name = "Open" },
-                    new IssueStatus { Name = "In Progress" },
-                    new IssueStatus { Name = "Resolved" }
+                    new IssueStatus { Id = 1, Name = "Open" },
+                    new IssueStatus { Id = 2, Name = "In Progress" },
+                    new IssueStatus { Id = 3, Name = "Resolved" }
                 });
 
-                await issueTrackerContext.SaveChangesAsync();
+                await SaveWithIdentityInsertAsync(issueTrackerContext, nameof(IssueStatus));
             }
 
             if (!await issueTrackerContext.Set<OperatingSystem>().AnyAsync())
             {
                 issueTrackerContext.OperatingSystem.AddRange(new[]
                 {
-                    new OperatingSystem { Name = "Linux" },
-                    new OperatingSystem { Name = "MacOS" },
-                    new OperatingSystem { Name = "Windows" },
-                    new OperatingSystem { Name = "Android" },
-                    new OperatingSystem { Name = "iOS" },
-                    new OperatingSystem { Name = "Windows Mobile" }
+                    new OperatingSystem { Id = 1, Name = "Linux" },
+                    new OperatingSystem { Id = 2, Name = "MacOS" },
+                    new OperatingSystem { Id = 3, Name = "Windows" },
+                    new OperatingSystem { Id = 4, Name = "Android" },
+                    new OperatingSystem { Id = 5, Name = "iOS" },
+                    new OperatingSystem { Id = 6, Name = "Windows Mobile" }
                 });
 
-                await issueTrackerContext.SaveChangesAsync();
+                await SaveWithIdentityInsertAsync(issueTrackerContext, nameof(OperatingSystem));
             }
 
             if (!await issueTrackerContext.Set<Product>().AnyAsync())
             {
                 issueTrackerContext.Product.AddRange(new[]
                 {
-                    new Product { Name = "Day Trader Wannabe" },
-                    new Product { Name = "Investment Overlord" },
-                    new Product { Name = "Workout Planner" },
-                    new Product { Name = "Social Anxiety Planner" },
+                    new Product { Id = 1, Name = "Day Trader Wannabe" },
+                    new Product { Id = 2, Name = "Investment Overlord" },
+                    new Product { Id = 3, Name = "Workout Planner" },
+                    new Product { Id = 4, Name = "Social Anxiety Planner" },
                 });
 
-                await issueTrackerContext.SaveChangesAsync();
+                await SaveWithIdentityInsertAsync(issueTrackerContext, nameof(Product));
             }
 
             if (!await issueTrackerContext.Set<Version>().AnyAsync())
             {
                 issueTrackerContext.Version.AddRange(new[]
                 {
-                    new Version { VersionName = "1.0" },
-                    new Version { VersionName = "1.1" },
-                    new Version { VersionName = "1.2" },
-                    new Version { VersionName = "1.3" },
-                    new Version { VersionName = "2.0" },
-                    new Version { VersionName = "2.1" },
+                    new Version { Id = 1, VersionName = "1.0" },
+                    new Version { Id = 2, VersionName = "1.1" },
+                    new Version { Id = 3, VersionName = "1.2" },
+                    new Version { Id = 4, VersionName = "1.3" },
+                    new Version { Id = 5, VersionName = "2.0" },
+                    new Version { Id = 6, VersionName = "2.1" },
                 });
 
-                await issueTrackerContext.SaveChangesAsync();
+                await SaveWithIdentityInsertAsync(issueTrackerContext, nameof(Version));
             }
 
             if (!await issueTrackerContext.Set<ProductVersionOs>().AnyAsync())
@@ -168,6 +168,17 @@ namespace DbStoredProcedures.Data.Seeder
 
                 await issueTrackerContext.SaveChangesAsync();
             }            
+        }
+
+        private static async Task SaveWithIdentityInsertAsync(IssueTrackerContext issueTrackerContext, string tableName)
+        {
+            issueTrackerContext.Database.OpenConnection();
+            await issueTrackerContext.Database.ExecuteSqlRawAsync($"SET IDENTITY_INSERT dbo.{tableName} ON");
+
+            await issueTrackerContext.SaveChangesAsync();
+
+            issueTrackerContext.Database.OpenConnection();
+            await issueTrackerContext.Database.ExecuteSqlRawAsync($"SET IDENTITY_INSERT dbo.{tableName} OFF");
         }
     }
 }

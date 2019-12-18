@@ -26,8 +26,11 @@ namespace DbStoredProcedures
 
             var dbContext = serviceProvider.GetRequiredService<IssueTrackerContext>();
 
-            Console.Write("Type in number of issues you want to generate (Default: 0).: ");
-            int numberOfIssues = 0;
+            Console.WriteLine("[Enter] to fill in default Issue Data if table is empty (for Unit Tests)");
+            Console.WriteLine("[Number] to generate random data (0 to leave empty)");
+            Console.Write("Input: ");
+
+            int numberOfIssues = -1;
             if (int.TryParse(Console.ReadLine(), out int numberOfIssuesInput))
             {
                 numberOfIssues = numberOfIssuesInput;
@@ -42,7 +45,15 @@ namespace DbStoredProcedures
             await dbContext.Database.MigrateAsync();
 
             logger.LogInformation("Seed Database...");
-            await DbDataSeeder.Seed(numberOfIssues, dbContext);
+            if (numberOfIssues < 0) 
+            {
+                await DbDataSeeder.SeedStaticDataAsync(dbContext);
+            }
+            else
+            {
+                await DbDataSeeder.Seed(numberOfIssues, dbContext);
+            }
+
             logger.LogInformation("Seeding done");
         }
     }
