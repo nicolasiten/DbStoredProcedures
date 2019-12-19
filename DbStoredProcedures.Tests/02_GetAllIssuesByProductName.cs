@@ -7,7 +7,7 @@ using Xunit;
 
 namespace DbStoredProcedures.Tests
 {
-    public class GetAllIssuesByProductNameTests : StoredProceduresTestBase
+    public class GetAllIssuesByProductName : StoredProceduresTestBase
     {
         [Theory]
         [InlineData(true, "Workout Planner", 7)]

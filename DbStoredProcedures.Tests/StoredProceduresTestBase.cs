@@ -53,5 +53,18 @@ namespace DbStoredProcedures.Tests
         {
             return issueStoredProcedureResults.All(i => i.CreationDate >= fromDate && i.CreationDate <= toDate);
         }
+
+        protected bool CheckKeyWords(IEnumerable<IssueStoredProcedureResult> issueStoredProcedureResults, params string[] keyWords)
+        {
+            foreach (string keyWord in keyWords)
+            {
+                if (!issueStoredProcedureResults.All(i => i.Problem.ToLower().Contains(keyWord.ToLower())))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
 }

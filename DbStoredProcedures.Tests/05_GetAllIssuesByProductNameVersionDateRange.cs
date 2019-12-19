@@ -7,14 +7,15 @@ using Xunit;
 
 namespace DbStoredProcedures.Tests
 {
-    public class GetAllIssuesByProductNameDateRange : StoredProceduresTestBase
+    public class GetAllIssuesByProductNameVersionDateRange : StoredProceduresTestBase
     {
         [Theory]
-        [InlineData(true, "Day Trader Wannabe", 2019, 12, 11, 3, 2019, 12, 14, 10, 3)]
-        [InlineData(false, "Social Anxiety Planner", 2019, 12, 10, 5, 2019, 12, 14, 10, 2)]
-        public async Task GetAllIssuesByProductNameDateRangeTest(
+        [InlineData(true, "Investment Overlord", "1.0", 2019, 12, 8, 3, 2019, 12, 14, 10, 1)]
+        [InlineData(false, "Social Anxiety Planner", "1.1", 2019, 12, 5, 5, 2019, 12, 14, 10, 2)]
+        public async Task GetAllIssuesByProductNameVersionDateRangeTest(
             bool resolved,
             string productName,
+            string version,
             int yearFrom,
             int monthFrom,
             int dayFrom,
@@ -28,9 +29,10 @@ namespace DbStoredProcedures.Tests
             DateTime fromDate = new DateTime(yearFrom, monthFrom, dayFrom, hourFrom, 0, 0);
             DateTime toDate = new DateTime(yearTo, monthTo, dayTo, hourTo, 0, 0);
 
-            var issues = await IssueTrackerContext.LoadStoredProc("GetAllIssuesByProductNameDateRange")
+            var issues = await IssueTrackerContext.LoadStoredProc("GetAllIssuesByProductNameVersionDateRange")
                 .WithSqlParam("Resolved", resolved)
                 .WithSqlParam("ProductName", productName)
+                .WithSqlParam("Version", version)
                 .WithSqlParam("DateFrom", fromDate)
                 .WithSqlParam("DateTo", toDate)
                 .ExecuteStoredProcAsync<IssueStoredProcedureResult>();
@@ -39,6 +41,7 @@ namespace DbStoredProcedures.Tests
 
             Assert.True(CheckResolvedState(issues, resolved));
             Assert.True(CheckProductName(issues, productName));
+            Assert.True(CheckProductVersion(issues, version));
             Assert.True(CheckProductDateRange(issues, fromDate, toDate));
         }
     }

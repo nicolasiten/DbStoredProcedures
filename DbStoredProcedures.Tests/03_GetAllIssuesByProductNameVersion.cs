@@ -7,7 +7,7 @@ using Xunit;
 
 namespace DbStoredProcedures.Tests
 {
-    public class GetAllIssuesByProductNameVersionTests : StoredProceduresTestBase
+    public class GetAllIssuesByProductNameVersion : StoredProceduresTestBase
     {
         [Theory]
         [InlineData(false, "Day Trader Wannabe", "1.1", 3)]

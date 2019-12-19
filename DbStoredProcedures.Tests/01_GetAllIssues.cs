@@ -8,7 +8,7 @@ using Xunit;
 
 namespace DbStoredProcedures.Tests
 {
-    public class GetAllIssuesTests : StoredProceduresTestBase
+    public class GetAllIssues : StoredProceduresTestBase
     {
         [Theory]
         [InlineData(true, 29)]
