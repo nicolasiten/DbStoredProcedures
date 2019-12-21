@@ -10,7 +10,7 @@ BEGIN
 	SET NOCOUNT ON;
 
 	DECLARE @sql VARCHAR(MAX)
-	SET @sql = 'SELECT Issue.Id As IssueId, Issue.StatusFk, Issue.OperatingSystemFk, Issue.VersionFk, Issue.Problem, 
+	SET @sql = 'SELECT Issue.Id As IssueId, Issue.Problem, 
 		Issue.CreationDate, Issue.Resolution, Issue.ResolutionDate, Product.Id AS ProductId, Product.Name As ProductName, 
 		OperatingSystem.Id AS OsId, OperatingSystem.Name AS OsName, Version.Id AS VersionId, Version.Version,
 		IssueStatus.Id AS IssueStatusId, IssueStatus.Name AS IssueStatusName
@@ -45,7 +45,7 @@ BEGIN
 	SET NOCOUNT ON;
 
 	DECLARE @sql VARCHAR(MAX)
-	SET @sql = 'SELECT Issue.Id As IssueId, Issue.StatusFk, Issue.OperatingSystemFk, Issue.VersionFk, Issue.Problem, 
+	SET @sql = 'SELECT Issue.Id As IssueId, Issue.Problem, 
 		Issue.CreationDate, Issue.Resolution, Issue.ResolutionDate, Product.Id AS ProductId, Product.Name As ProductName, 
 		OperatingSystem.Id AS OsId, OperatingSystem.Name AS OsName, Version.Id AS VersionId, Version.Version,
 		IssueStatus.Id AS IssueStatusId, IssueStatus.Name AS IssueStatusName
@@ -82,7 +82,7 @@ BEGIN
 	SET NOCOUNT ON;
 
 	DECLARE @sql VARCHAR(MAX)
-	SET @sql = 'SELECT Issue.Id As IssueId, Issue.StatusFk, Issue.OperatingSystemFk, Issue.VersionFk, Issue.Problem, 
+	SET @sql = 'SELECT Issue.Id As IssueId, Issue.Problem, 
 		Issue.CreationDate, Issue.Resolution, Issue.ResolutionDate, Product.Id AS ProductId, Product.Name As ProductName, 
 		OperatingSystem.Id AS OsId, OperatingSystem.Name AS OsName, Version.Id AS VersionId, Version.Version,
 		IssueStatus.Id AS IssueStatusId, IssueStatus.Name AS IssueStatusName
@@ -121,7 +121,7 @@ BEGIN
 	SET NOCOUNT ON;
 
 	DECLARE @sql VARCHAR(MAX)
-	SET @sql = 'SELECT Issue.Id As IssueId, Issue.StatusFk, Issue.OperatingSystemFk, Issue.VersionFk, Issue.Problem, 
+	SET @sql = 'SELECT Issue.Id As IssueId, Issue.Problem, 
 		Issue.CreationDate, Issue.Resolution, Issue.ResolutionDate, Product.Id AS ProductId, Product.Name As ProductName, 
 		OperatingSystem.Id AS OsId, OperatingSystem.Name AS OsName, Version.Id AS VersionId, Version.Version,
 		IssueStatus.Id AS IssueStatusId, IssueStatus.Name AS IssueStatusName
@@ -161,7 +161,7 @@ BEGIN
 	SET NOCOUNT ON;
 
 	DECLARE @sql VARCHAR(MAX)
-	SET @sql = 'SELECT Issue.Id As IssueId, Issue.StatusFk, Issue.OperatingSystemFk, Issue.VersionFk, Issue.Problem, 
+	SET @sql = 'SELECT Issue.Id As IssueId, Issue.Problem, 
 		Issue.CreationDate, Issue.Resolution, Issue.ResolutionDate, Product.Id AS ProductId, Product.Name As ProductName, 
 		OperatingSystem.Id AS OsId, OperatingSystem.Name AS OsName, Version.Id AS VersionId, Version.Version,
 		IssueStatus.Id AS IssueStatusId, IssueStatus.Name AS IssueStatusName
@@ -199,7 +199,7 @@ BEGIN
 	SET NOCOUNT ON;
 
 	DECLARE @sql VARCHAR(MAX)
-	SET @sql = 'SELECT Issue.Id As IssueId, Issue.StatusFk, Issue.OperatingSystemFk, Issue.VersionFk, Issue.Problem, 
+	SET @sql = 'SELECT Issue.Id As IssueId, Issue.Problem, 
 		Issue.CreationDate, Issue.Resolution, Issue.ResolutionDate, Product.Id AS ProductId, Product.Name As ProductName, 
 		OperatingSystem.Id AS OsId, OperatingSystem.Name AS OsName, Version.Id AS VersionId, Version.Version,
 		IssueStatus.Id AS IssueStatusId, IssueStatus.Name AS IssueStatusName
@@ -261,7 +261,7 @@ BEGIN
 	SET NOCOUNT ON;
 
 	DECLARE @sql VARCHAR(MAX)
-	SET @sql = 'SELECT Issue.Id As IssueId, Issue.StatusFk, Issue.OperatingSystemFk, Issue.VersionFk, Issue.Problem, 
+	SET @sql = 'SELECT Issue.Id As IssueId, Issue.Problem, 
 		Issue.CreationDate, Issue.Resolution, Issue.ResolutionDate, Product.Id AS ProductId, Product.Name As ProductName, 
 		OperatingSystem.Id AS OsId, OperatingSystem.Name AS OsName, Version.Id AS VersionId, Version.Version,
 		IssueStatus.Id AS IssueStatusId, IssueStatus.Name AS IssueStatusName
@@ -322,7 +322,7 @@ BEGIN
 	SET NOCOUNT ON;
 
 	DECLARE @sql VARCHAR(MAX)
-	SET @sql = 'SELECT Issue.Id As IssueId, Issue.StatusFk, Issue.OperatingSystemFk, Issue.VersionFk, Issue.Problem, 
+	SET @sql = 'SELECT Issue.Id As IssueId, Issue.Problem, 
 		Issue.CreationDate, Issue.Resolution, Issue.ResolutionDate, Product.Id AS ProductId, Product.Name As ProductName, 
 		OperatingSystem.Id AS OsId, OperatingSystem.Name AS OsName, Version.Id AS VersionId, Version.Version,
 		IssueStatus.Id AS IssueStatusId, IssueStatus.Name AS IssueStatusName
@@ -380,7 +380,7 @@ BEGIN
 	SET NOCOUNT ON;
 
 	DECLARE @sql VARCHAR(MAX)
-	SET @sql = 'SELECT Issue.Id As IssueId, Issue.StatusFk, Issue.OperatingSystemFk, Issue.VersionFk, Issue.Problem, 
+	SET @sql = 'SELECT Issue.Id As IssueId, Issue.Problem, 
 		Issue.CreationDate, Issue.Resolution, Issue.ResolutionDate, Product.Id AS ProductId, Product.Name As ProductName, 
 		OperatingSystem.Id AS OsId, OperatingSystem.Name AS OsName, Version.Id AS VersionId, Version.Version,
 		IssueStatus.Id AS IssueStatusId, IssueStatus.Name AS IssueStatusName
@@ -439,7 +439,7 @@ BEGIN
 	SET NOCOUNT ON;
 
 	DECLARE @sql VARCHAR(MAX)
-	SET @sql = 'SELECT Issue.Id As IssueId, Issue.StatusFk, Issue.OperatingSystemFk, Issue.VersionFk, Issue.Problem, 
+	SET @sql = 'SELECT Issue.Id As IssueId, Issue.Problem, 
 		Issue.CreationDate, Issue.Resolution, Issue.ResolutionDate, Product.Id AS ProductId, Product.Name As ProductName, 
 		OperatingSystem.Id AS OsId, OperatingSystem.Name AS OsName, Version.Id AS VersionId, Version.Version,
 		IssueStatus.Id AS IssueStatusId, IssueStatus.Name AS IssueStatusName

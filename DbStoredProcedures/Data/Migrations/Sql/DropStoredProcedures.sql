@@ -4,9 +4,9 @@ DROP PROCEDURE GetAllIssuesByProductName;
 
 DROP PROCEDURE GetAllIssuesByProductNameVersion;
 
-DROP PROCEDURE GetAllIssuesByProductCreationDateRange;
+DROP PROCEDURE GetAllIssuesByProductNameDateRange;
 
-DROP PROCEDURE GetAllIssuesByProductVersionCreationDateRange;
+DROP PROCEDURE GetAllIssuesByProductNameVersionDateRange;
 
 DROP PROCEDURE GetAllIssuesByKeyWords;
 
@@ -14,6 +14,6 @@ DROP PROCEDURE GetAllIssuesByProductNameKeyWords;
 
 DROP PROCEDURE GetAllIssuesByProductNameVersionKeyWords;
 
-DROP PROCEDURE GetAllIssuesByProductDateRangeKeywords;
+DROP PROCEDURE GetAllIssuesByProductNameDateRangeKeywords;
 
-DROP PROCEDURE GetAllIssuesByProductDateRangeVersionKeywords;
+DROP PROCEDURE GetAllIssuesByProductNameDateRangeVersionKeywords;

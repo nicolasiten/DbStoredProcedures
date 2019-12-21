@@ -8,12 +8,6 @@ namespace DbStoredProcedures.Data
     {
         public int IssueId { get; set; }
 
-        public int StatusFk { get; set; }
-
-        public int OperatingSystemFk { get; set; }
-
-        public int VersionFk { get; set; }
-
         public string Problem { get; set; }
 
         public DateTime CreationDate { get; set; }
