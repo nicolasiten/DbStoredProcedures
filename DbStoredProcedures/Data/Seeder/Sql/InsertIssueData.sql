@@ -1,6 +1,4 @@
-﻿USE [IssueTracker]
-
-SET IDENTITY_INSERT [dbo].[Issue] ON 
+﻿SET IDENTITY_INSERT [dbo].[Issue] ON 
 
 INSERT [dbo].[Issue] ([Id], [StatusFk], [OperatingSystemFk], [ProductFk], [VersionFk], [Problem], [CreationDate], [Resolution], [ResolutionDate]) VALUES (2, 3, 5, 1, 3, N'User says product is buying two of every purchase made. If the user
 wishes to buy 10 shares of Apple stock, the product makes two transactions, each for 10
